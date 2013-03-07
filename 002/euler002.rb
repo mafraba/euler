@@ -15,16 +15,24 @@ puts "ProjectEuler Problem 2"
 MAX = 4000000
 
 # Fibonacci sequence
-def fibonacci
-  fib = [1,1]
-  n = 2
-  while n < MAX do
-    n = fib[-1] + fib[-2]
-    fib << n
+# def fibonacci
+#   fib = [1,1]
+#   n = 2
+#   while n < MAX do
+#     n = fib[-1] + fib[-2]
+#     fib << n
+#   end
+#   fib
+# end
+fibonacci = Enumerator.new do |x|
+  a = b = 1
+  while a < MAX
+    x << a
+    a, b = b , a+b    
   end
-  fib
 end
 
-ans = fibonacci().select { |e| e.even? }.inject(:+)
+
+ans = fibonacci.select { |e| e.even? }.inject(:+)
 
 puts ans
