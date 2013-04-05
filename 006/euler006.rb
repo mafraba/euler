@@ -17,7 +17,7 @@
 #
 
 puts ""
-puts "ProjectEuler Problem 5"
+puts "ProjectEuler Problem 6"
 puts ""
 
 sum_of_squares = (1..100).inject { |mem, var|  mem + var**2 }
